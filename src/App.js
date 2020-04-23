@@ -3,20 +3,22 @@ import React, { Component } from 'react';
 import Toolbar from './components/Toolbar/Toolbar';
 import SideDrawer from './components/SideDrawer/SideDrawer';
 import Backdrop from './components/Backdrop/Backdrop';
+import PhonePad from './components/PhonePad/PhonePad';
 
 class App extends Component {
+  
   state = {
     sideDrawerOpen: false
   };
 
   drawerToggleClickHandler = () => {
     this.setState((prevState) => {
-      return {sideDrawerOpen: !prevState.sideDrawerOpen};
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
 
   backdropClickHandler = () => {
-    this.setState({sideDrawerOpen: false});
+    this.setState({ sideDrawerOpen: false });
   };
 
   render() {
@@ -26,14 +28,15 @@ class App extends Component {
       backdrop = <Backdrop click={this.backdropClickHandler} />
     }
     return (
-      <div style={{height: '100%'}}>
+      <div style={{ height: '100%' }}>
         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
-        <main style={{marginTop: '64px'}}>
+        <main style={{ marginTop: '64px' }}>
           <p>This is the page content!</p>
+          <PhonePad />
         </main>
-        
+
       </div>
     );
   }

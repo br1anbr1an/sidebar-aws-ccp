@@ -9,23 +9,20 @@ class CCP extends Component {
   }
 
   componentDidMount() {
-
-
-
-/* global connect */
-connect.core.initCCP(this.containerDiv.current, {
-  ccpUrl: 'https://tcsi2i.awsapps.com/connect/ccp#/',
-  loginPopup: true,
-  softphone: {
-    allowFramedSoftphone: true
+    /* global connect */
+    connect.core.initCCP(this.containerDiv.current, {
+      ccpUrl: 'https://tcsi2i.awsapps.com/connect/ccp#/',
+      loginPopup: true,
+      softphone: {
+        allowFramedSoftphone: true
+      }
+    });
   }
-});
-}
 
 
   render() {
     return (
-          <div className="containerDiv" ref={this.containerDiv}/>
+      <div className="containerDiv" ref={this.containerDiv} />
     );
   }
 }

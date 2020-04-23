@@ -4,7 +4,9 @@
   "private": true,
   "dependencies": {
     "amazon-connect-streams": "^1.4.7",
+    "bootstrap": "^4.4.1",
     "react": "^16.4.1",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^3.4.1"
   },
