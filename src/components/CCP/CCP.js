@@ -18,16 +18,20 @@ class CCP extends Component {
       }
     });
 
-    connect.agent(function (agent) {
+    connect.agent(agent => {
 
       // setAgentName(agent.getName())//Get Agent Name
-      agent.onRefresh(function (agent) {
-        console.log(agent)
+      agent.onRefresh(agent => {
+        console.log("onRefresh", agent)
+        this.props.drawerClickHandler();
+        console.log(this.props)
+        
 
       });
       agent.onStateChange((a) => {
         //{agent: Agent, oldState: "Offline", newState: "Busy"}
-        console.log('onStateChange', a)
+        console.log('onStateChange', a.newState)
+        
         // setAgentStatus(a.newState);
       });
       agent.onRoutable(a => {
@@ -76,6 +80,7 @@ class CCP extends Component {
       contact.onConnecting(c => {
         //Agent Has Pending Contact
         console.log('onConnecting', c)
+        console.log(this.props);
         this.props.drawerClickHandler();
       });
       contact.onAccepted(c => {
